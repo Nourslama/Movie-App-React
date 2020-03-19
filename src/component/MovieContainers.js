@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import {movies} from './data';
 import Search from './search';
@@ -11,9 +10,9 @@ export default class MovieContainers extends Component {
         super(props)
     this.state={
          movies,
-        movieList:[],
+     
         recherche:"",
-        stars:1
+        stars:0
        
     }
     //methode pour tester si addNewMovie ajoute reelement un film
@@ -35,15 +34,17 @@ export default class MovieContainers extends Component {
          })
      }
   //add new movie
-   addNewMovie(newMovie) {
+   addNewMovie=(newMovie) =>{
+    
     this.setState({
-        movies: this.state.movies.concat(newMovie)
+        movies: [...this.state.movies, newMovie]
     })
+    
   }
    //rating
    handleRating = rate => this.setState({ stars: rate });
     render() {
-        const movieList= this.state.movies.filter((el=>el.title.toUpperCase().includes(this.state.recherche.toUpperCase())&& el.rating >= this.state.stars ))
+        const movieList= this.state.movies.filter((el=>el.title.toUpperCase().includes(this.state.recherche.toUpperCase().trim())&& el.rating >= this.state.stars ))
        
         return (
       <div>

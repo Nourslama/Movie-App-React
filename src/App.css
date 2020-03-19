@@ -179,13 +179,13 @@ opacity: 0.6;
   font-weight: bold;
 }
 .formModal button{
+ 
   cursor: pointer;
   padding: 1em;
   border-radius: 3px;
   border: 1px solid black;
   background: none;
   margin: 123px 1em;
-  
 }
 .formModal h2{
   
